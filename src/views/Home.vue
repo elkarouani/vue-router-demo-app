@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     <h1>Adopt a new best friend.</h1>
+    {{ animalsCount }}
     <button @click="togglePetForm" class="btn btn-primary">Add New Pet</button>
 
     <b-form @submit.prevent="handleSubmit" v-if="showPetForm">
@@ -39,12 +40,18 @@
 </template>
 
 <script>
-  import { mapActions } from 'vuex'
+  import { mapActions, mapGetters } from 'vuex'
+  import Swal from 'sweetalert2'
 
   export default {
     name: 'home',
     data () {
       return {showPetForm: false, formData: {name: '', age: 0, species: null}}
+    },
+    computed: {
+      ...mapGetters([
+        'animalsCount'
+      ])
     },
     methods: {
       ...mapActions([
@@ -54,6 +61,8 @@
       handleSubmit () {
         const { species, age, name } = this.formData;
         this.addPet({ species, pet: { name, age } })
+        this.formData = {name: '', age: 0, species: null};
+        Swal.fire({type: 'success', title: 'Form well submited', showConfirmButton: false, timer: 1500})
       }
 
     }
