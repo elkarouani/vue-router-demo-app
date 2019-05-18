@@ -5,10 +5,14 @@
   </div>    
 </template>
 <script>
-import dogs from '@/data/dogs'
-export default {
-  data () {
-    return {dogs}
+  import { mapState } from 'vuex'
+  
+  export default {
+    data () {return {}},
+    computed: {
+      ...mapState([
+        'dogs'
+      ])
+    }
   }
-}
 </script>
