@@ -9,10 +9,14 @@
   </div>
 </template>
 <script>
-import cats from '@/data/cats'
-export default {
-  data () {
-    return {cats}
+  import { mapState } from 'vuex'
+
+  export default {
+    data () {return {}},
+    computed: {
+      ...mapState([
+        'cats'
+      ])
+    }
   }
-}
 </script>
