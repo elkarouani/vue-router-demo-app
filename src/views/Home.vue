@@ -57,7 +57,8 @@
     },
     methods: {
       ...mapActions([
-        'addPet'
+        'addPet',
+        'deletePet'
       ]),
       togglePetForm () {this.showPetForm = !this.showPetForm;},
       handleSubmit () {
