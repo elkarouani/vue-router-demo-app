@@ -2,6 +2,7 @@
   <div class="home">
     <h1>Adopt a new best friend.</h1>
     {{ animalsCount }}
+    {{ getAllCats.length }}
     <button @click="togglePetForm" class="btn btn-primary">Add New Pet</button>
 
     <b-form @submit.prevent="handleSubmit" v-if="showPetForm">
@@ -50,7 +51,8 @@
     },
     computed: {
       ...mapGetters([
-        'animalsCount'
+        'animalsCount',
+        'getAllCats'
       ])
     },
     methods: {
