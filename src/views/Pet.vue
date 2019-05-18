@@ -1,5 +1,5 @@
 <template>
-    <div>
-        Pets
-    </div>    
+  <div>
+    Pet
+  </div>
 </template>
